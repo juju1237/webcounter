@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.14.10 on linux)" generated="2026-11-13T12:45:19.095936" rpa="false" schemaversion="5">
+<suite id="s1" name="Webcounter" source="/home/juuli/webcounter">
+<suite id="s1-s1" name="Src" source="/home/juuli/webcounter/src">
+<suite id="s1-s1-s1" name="Tests" source="/home/juuli/webcounter/src/tests">
+<suite id="s1-s1-s1-s1" name="Reset" source="/home/juuli/webcounter/src/tests/reset.robot">
+<kw name="Open And Configure Browser" owner="resource" type="SETUP">
+<if>
+<branch type="IF" condition="$HEADLESS == 'true'">
+<kw name="New Browser" owner="Browser">
+<arg>browser=${BROWSER}</arg>
+<arg>headless=True</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="NOT RUN" start="2026-11-13T12:45:19.619899" elapsed="0.000320"/>
+</kw>
+<status status="NOT RUN" start="2026-11-13T12:45:19.618288" elapsed="0.002222"/>
+</branch>
+<branch type="ELSE">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-11-13T12:45:19.622591" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "tracesDir": "/home/juuli/webcounter/results/browser/traces/temp/e9d526bb-1f7f-4825-8b77-c2d0eb3640a5"}</msg>
+<msg time="2026-11-13T12:45:19.624286" level="INFO">Starting Browser process /home/juuli/webcounter/.venv/lib/python3.14/site-packages/BrowserBatteries/bin/wrapper/index.js using at 127.0.0.1:38067</msg>
+<msg time="2026-11-13T12:45:21.100525" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"tracesDir":"/home/juuli/webcounter/results/browser/traces/temp/e9d526bb-1f7f-4825-8b77-c2d0eb3640a5"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<arg>slowMo=${DELAY}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-11-13T12:45:19.621043" elapsed="1.480261"/>
+</kw>
+<status status="PASS" start="2026-11-13T12:45:19.620683" elapsed="1.481024"/>
+</branch>
+<status status="PASS" start="2026-11-13T12:45:19.618217" elapsed="1.483674"/>
+</if>
+<kw name="New Context" owner="Browser">
+<msg time="2026-11-13T12:45:21.104608" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2026-11-13T12:45:21.133542" level="INFO">Successfully created context. </msg>
+<msg time="2026-11-13T12:45:21.133858" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-11-13T12:45:21.102626" elapsed="0.031506"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-11-13T12:45:21.939258" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<arg>about:blank</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-11-13T12:45:21.134687" elapsed="0.805179"/>
+</kw>
+<status status="PASS" start="2026-11-13T12:45:19.617317" elapsed="2.322808"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="When counter has a nonzero value and it is reset the value becomes zero" line="8">
+<kw name="Reset Counter" owner="resource" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-11-13T12:45:22.608638" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-11-13T12:45:22.609015" level="INFO">See also file:///home/juuli/webcounter/results/playwright-log.txt for additional details.</msg>
+<msg time="2026-11-13T12:45:22.609609" level="FAIL">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5001/
+Call log:
+  - navigating to "http://localhost:5001/", waiting until "load"
+</msg>
+<arg>${HOME_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-11-13T12:45:21.975575" elapsed="0.651775">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5001/
+Call log:
+  - navigating to "http://localhost:5001/", waiting until "load"
+</status>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>button &gt;&gt; text=Nollaa</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-11-13T12:45:22.627854" elapsed="0.000207"/>
+</kw>
+<status status="FAIL" start="2026-11-13T12:45:21.974892" elapsed="0.653399">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5001/
+Call log:
+  - navigating to "http://localhost:5001/", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-11-13T12:45:21.940330" elapsed="0.688404">Setup failed:
+Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5001/
+Call log:
+  - navigating to "http://localhost:5001/", waiting until "load"
+</status>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-11-13T12:45:22.895253" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-13T12:45:22.660641" elapsed="0.235073"/>
+</kw>
+<status status="FAIL" start="2026-11-13T12:45:19.283463" elapsed="3.612516"/>
+</suite>
+<status status="FAIL" start="2026-11-13T12:45:19.272504" elapsed="3.735489"/>
+</suite>
+<status status="FAIL" start="2026-11-13T12:45:19.212675" elapsed="3.910796"/>
+</suite>
+<status status="FAIL" start="2026-11-13T12:45:19.111440" elapsed="4.063169"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Webcounter" id="s1" pass="0" fail="1" skip="0">Webcounter</stat>
+<stat name="Src" id="s1-s1" pass="0" fail="1" skip="0">Webcounter.Src</stat>
+<stat name="Tests" id="s1-s1-s1" pass="0" fail="1" skip="0">Webcounter.Src.Tests</stat>
+<stat name="Reset" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Webcounter.Src.Tests.Reset</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
