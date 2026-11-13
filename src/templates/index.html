@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="fi">
 <head>
   <meta charset="UTF-8">
   <title>Laskuri</title>
@@ -17,5 +17,15 @@
       Nollaa
     </button>
   </form>
+  <form action="/set" method="POST">
+    <label for="counter-value">Aseta arvo:</label>
+    <input id="counter-value" name="value" type="number" step="1" value="{{ input_value }}" required>
+    <button type="submit">
+      Aseta
+    </button>
+  </form>
+  {% if error %}
+    <p role="alert">{{ error }}</p>
+  {% endif %}
 </body>
 </html>

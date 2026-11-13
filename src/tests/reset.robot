@@ -11,3 +11,9 @@ When counter has a nonzero value and it is reset the value becomes zero
     Get Text  body  *=  nappia painettu 1 kertaa
     Click  button >> text=Nollaa
     Get Text  body  *=  nappia painettu 0 kertaa
+
+When a value is submitted the counter is set to that value
+    Go To  ${HOME_URL}
+    Fill Text  input[name="value"]  10
+    Click  button >> text=Aseta
+    Get Text  body  *=  nappia painettu 10 kertaa
